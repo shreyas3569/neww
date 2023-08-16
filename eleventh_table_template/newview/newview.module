@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * The function returns an array with two keys: `newview` and `variables`.
+ */
+
+/**
+ * This function returns a dictionary with the table task variables.
+ *
+ * The function returns an array with two keys: `newview` and `variables`.
+ * The `newview` key contains the name of the table task.
+ *
+ * The `rows` variable is a string that contains the rows of the table task.
+ */
+function newview_theme($existing, $type, $theme, $path) {
+  // Set the `rows` variable to an empty string.
+  $rows = '';
+
+  // Return an array with the `newview` and `variables` keys.
+  return [
+    'newview' => [
+      'variables' => [
+        'rows' => $rows,
+      ],
+    ],
+  ];
+}

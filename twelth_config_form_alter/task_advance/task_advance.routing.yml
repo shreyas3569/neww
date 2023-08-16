@@ -1,0 +1,7 @@
+task_advance.settings:
+  path: '/advance'
+  defaults:
+    _title: 'Settings'
+    _form: 'Drupal\task_advance\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

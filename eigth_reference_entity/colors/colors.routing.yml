@@ -1,0 +1,15 @@
+colors.new_task: #route name for controller
+  path: '/colors' #path
+  defaults:
+    _controller: '\Drupal\colors\Controller\CustomController::colors' #class and function
+    _title: 'colors' #title
+  requirements:
+    _permission: 'access content' #defining permissions needed
+
+colors.new_task2: #route name for controller
+  path: '/redddu' #path
+  defaults:
+    _controller: '\Drupal\colors\Controller\CustomContyp::new' #class and function
+    _title: 'New' #title
+  requirements:
+    _permission: 'access content' #defining permissions needed

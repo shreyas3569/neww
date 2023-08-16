@@ -1,0 +1,15 @@
+newview.example:
+  path: '/new-view/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\newview\Controller\NewController::build'
+  requirements:
+    _permission: 'access content'
+
+newview.CustomTable_form:
+  path: '/new-view'
+  defaults:
+    _title: 'new_view '
+    _form: 'Drupal\newview\Form\CustomTableForm'
+  requirements:
+    _permission: 'administer newview configuration'

@@ -1,0 +1,5 @@
+name: 'task_head'
+type: module
+description: 'task head'
+package: Custom
+core_version_requirement: ^10

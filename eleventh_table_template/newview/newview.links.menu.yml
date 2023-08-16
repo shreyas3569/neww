@@ -1,0 +1,6 @@
+# newview.CustomTable_form:
+#   title: 'newview'
+#   description: 'Configure newview.'
+#   parent: system.admin_config_system
+#   route_name: newview.CustomTable_form
+#   weight: 10

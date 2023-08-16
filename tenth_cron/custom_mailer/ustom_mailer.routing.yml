@@ -1,0 +1,7 @@
+custom_mailer.tokken:
+  path: '/cornn'
+  defaults:
+    _title: 'cron form'
+    _form: 'Drupal\custom_mailer\Form\CustomForm'
+  requirements:
+    _permission: 'access content'

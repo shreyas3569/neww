@@ -1,0 +1,5 @@
+name: 'token task'
+type: module
+description: 'custom token'
+package: Custom
+core_version_requirement: ^10
