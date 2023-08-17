@@ -11,22 +11,28 @@ use Drupal\node\Entity\Node;
 class CustomController extends ControllerBase {
 
   /**
-   * Function task1.
+   * This is the function colors.
    */
   public function colors() {
-    $node = Node::load(8);
-    if ($node) {
-      if ($node->getType() === 'Shapes') {
-        $shape = $node->getTitle();
-        $color_tid = $node->get('field_texx')->entity;
-        $term = $color_tid->getName();
-        $userid = $color_tid->get('field_users')->entity;
-        $user = $userid->getDisplayName();
-        $build = [
-          '#markup' => "$shape | $term | $user",
-        ];
-        return $build;
+    $node_id = 8;
+    $node = Node::load($node_id);
+    if ($node && $node->getType() == 'Shapes') {
+      $node_title = $node->getTitle();
+      $taxonomy_term_name = '';
+      $taxonomy_term_references = $node->get('field_texx')->referencedEntities();
+      if (!empty($taxonomy_term_references)) {
+        $taxonomy_term = reset($taxonomy_term_references);
+        $taxonomy_term_name = $taxonomy_term->getName();
       }
+      $user_name = '';
+      $user_references = $node->get('field_texx')->entity->get('field_users')->referencedEntities();
+      if (!empty($user_references)) {
+        $user = reset($user_references);
+        $user_name = $user->getDisplayName();
+      }
+      return [
+        '#markup' => $node_title . ' ' . $taxonomy_term_name . ' ' . $user_name,
+      ];
     }
   }
 

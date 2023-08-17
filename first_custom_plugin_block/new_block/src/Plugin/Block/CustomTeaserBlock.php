@@ -8,7 +8,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-
 /**
  * Provides a custom block that loads a node in teaser mode.
  *
@@ -19,8 +18,20 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * )
  */
 class CustomTeaserBlock extends BlockBase implements ContainerFactoryPluginInterface {
-
+  /**
+   * The entity type manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected $entityTypeManager;
+
+  /**
+   * The entity display repository service.
+   *
+   * @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface
+   */
+
+  protected $entityDisplayRepository;
 
   /**
    * Constructs a new CustomTeaserNodeBlock object.
@@ -31,8 +42,10 @@ class CustomTeaserBlock extends BlockBase implements ContainerFactoryPluginInter
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager service.
+   * @param \Drupal\Core\Entity\EntityDisplayRepository $entityDisplayRepository
+   *   The entity display repository service.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, $entityTypeManager, EntityDisplayRepositoryInterface $entityDisplayRepository) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -52,8 +65,6 @@ class CustomTeaserBlock extends BlockBase implements ContainerFactoryPluginInter
       $container->get('entity_display.repository')
     );
   }
-
-
 
   /**
    * {@inheritdoc}
@@ -101,7 +112,7 @@ class CustomTeaserBlock extends BlockBase implements ContainerFactoryPluginInter
     $node = $this->entityTypeManager->getStorage('node')->load($node_id);
 
     // Render the node entity in teaser mode.
-  if ($node) {
+    if ($node) {
       $view_mode = $this->configuration['view_mode'];
       $view_builder = $this->entityTypeManager->getViewBuilder('node');
       $build = $view_builder->view($node, $view_mode);
@@ -109,4 +120,5 @@ class CustomTeaserBlock extends BlockBase implements ContainerFactoryPluginInter
 
     return $build;
   }
+
 }

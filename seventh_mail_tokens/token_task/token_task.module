@@ -33,7 +33,7 @@ function token_task_mail($key, &$message, $params) {
  * Implements hook_entity_insert().
  */
 function token_task_entity_insert(EntityInterface $entity) {
-  // exit;
+  // exit;.
   $mailManager = \Drupal::service('plugin.manager.mail');
   $module = 'token_task';
   $key = 'create_page';

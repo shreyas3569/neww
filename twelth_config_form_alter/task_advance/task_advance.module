@@ -1,12 +1,16 @@
 <?php
 
-use Drupal\Core\Entity\EntityInterface;
+/**
+ * @file
+ * Description.
+ */
+
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_form_alter() for article
+ * Implements hook_form_alter().
  */
-function task_advance_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function task_advance_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   if ($form_id == 'node_article_form') {
 
     $config = \Drupal::config('task_advance.settings');

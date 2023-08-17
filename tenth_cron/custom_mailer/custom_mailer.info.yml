@@ -3,4 +3,3 @@ type: module
 description: 'Sends emails based on node creation time.'
 core_version_requirement: ^9 || ^10
 package: Custom
-

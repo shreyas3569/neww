@@ -46,12 +46,13 @@ final class SettingsForm extends ConfigFormBase {
     $form['tags'] = [
       '#type' => 'entity_autocomplete',
       '#title' => $this->t('tags'),
-      '#target_type' =>'taxonomy_term',
+      '#target_type' => 'taxonomy_term',
       '#default_value' => \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tag_value),
-      '#required' => True,
+      '#required' => TRUE,
     ];
     return parent::buildForm($form, $form_state);
   }
+
   /**
    * {@inheritdoc}
    */
