@@ -1,0 +1,11 @@
+fifteen_task.example:
+  path: '/node/{node}/title'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\fifteen_task\Controller\FifteenTaskController::build'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      node:
+        type: entity:node
