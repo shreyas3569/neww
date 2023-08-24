@@ -1,0 +1,6 @@
+services:
+  seventeenth_task.commands:
+    class: \Drupal\seventeenth_task\Commands\CustomMaintainance
+    tags:
+      - { name: drush.command }
+    arguments: ['@messenger', '@state']
